@@ -11,27 +11,6 @@ You are provided with a full-stack application that includes:
 
 The application is a Task Management System that allows users to create, view, and manage tasks. However, it contains several intentional issues that need to be fixed.
 
-## Current Issues
-
-1. **Docker Configuration Issues**
-
-   - The application fails to start due to configuration errors in docker-compose.yml
-   - Services have conflicting ports and incorrect environment variables
-   - Database connection is misconfigured
-
-2. **Backend Issues**
-
-   - Missing database migration for the new `priority` field in Task entity
-   - API validation is not properly implemented
-   - Incorrect error handling in TaskService
-   - Missing API documentation (Swagger)
-
-3. **Frontend Issues**
-   - Task creation form doesn't handle the new `priority` field
-   - API requests are using incorrect endpoints
-   - Date formatting issues in task display
-   - Form validation is not implemented
-
 ## Your Tasks
 
 ### 1. Fix Docker Configuration
