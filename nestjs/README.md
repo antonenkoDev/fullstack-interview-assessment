@@ -30,6 +30,7 @@ The application is a Task Management System that allows users to create, view, a
 - Implement proper form validation
 - Fix API integration
 - Add proper error handling and user feedback
+- Add styling using UI libraries
 
 ### 4. Add Unit Tests
 
