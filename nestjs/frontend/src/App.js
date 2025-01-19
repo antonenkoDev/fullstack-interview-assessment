@@ -1,47 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Intentional issue: Missing TypeScript and proper interfaces
 function App() {
   const [tasks, setTasks] = useState([]);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [priority, setPriority] = useState('LOW');
+  // Intentional issue: Missing priority field in form state
   const [status, setStatus] = useState('TODO');
+  // Intentional issue: Missing loading and error states
 
   useEffect(() => {
     fetchTasks();
   }, []);
 
   const fetchTasks = async () => {
-    try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/tasks`);
-      setTasks(response.data);
-    } catch (error) {
-      console.error('Error fetching tasks:', error);
-    }
+    // Intentional issue: No error handling
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/tasks`);
+    setTasks(response.data);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/tasks`, {
-        title,
-        description,
-        status,
-        priority
-      });
-      setTitle('');
-      setDescription('');
-      setPriority('LOW');
-      setStatus('TODO');
-      fetchTasks();
-    } catch (error) {
-      console.error('Error creating task:', error);
-    }
+    // Intentional issue: No form validation
+    // Intentional issue: No error handling
+    await axios.post(`${process.env.REACT_APP_API_URL}/tasks`, {
+      title,
+      description,
+      status,
+    });
+    setTitle('');
+    setDescription('');
+    setStatus('TODO');
+    fetchTasks();
   };
 
   return (
-    <div className="App">
+    // Intentional issue: Missing proper styling and CSS
+    <div>
       <h1>Task Management</h1>
       
       <form onSubmit={handleSubmit}>
@@ -51,7 +47,6 @@ function App() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Task title"
-            required
           />
         </div>
         <div>
@@ -59,15 +54,7 @@ function App() {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Task description"
-            required
           />
-        </div>
-        <div>
-          <select value={priority} onChange={(e) => setPriority(e.target.value)}>
-            <option value="LOW">Low</option>
-            <option value="MEDIUM">Medium</option>
-            <option value="HIGH">High</option>
-          </select>
         </div>
         <div>
           <select value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -76,16 +63,20 @@ function App() {
             <option value="DONE">Done</option>
           </select>
         </div>
+        {/* Intentional issue: Missing priority field in form */}
         <button type="submit">Add Task</button>
       </form>
 
-      <div className="tasks">
+      {/* Intentional issue: No loading indicator */}
+      {/* Intentional issue: No error message display */}
+      <div>
         {tasks.map((task) => (
-          <div key={task.id} className="task">
+          // Intentional issue: Missing key prop
+          <div>
             <h3>{task.title}</h3>
             <p>{task.description}</p>
             <p>Status: {task.status}</p>
-            <p>Priority: {task.priority}</p>
+            {/* Intentional issue: Not displaying priority */}
           </div>
         ))}
       </div>
