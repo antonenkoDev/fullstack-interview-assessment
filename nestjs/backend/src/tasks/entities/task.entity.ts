@@ -19,10 +19,6 @@ export class Task {
   @ApiProperty()
   status: string;
 
-  @Column()
-  @ApiProperty()
-  priority: string;
-
   @CreateDateColumn()
   @ApiProperty()
   createdAt: Date;
